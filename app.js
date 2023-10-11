@@ -51,6 +51,7 @@ app.get('/employees', (req, res) => {
 // Handle form submission and store data in MongoDB
 app.post('/add', (req, res) => {
     const { name, position, salary, state } = req.body;
+    console.log(`Received POST request to /add with data: name=${name}, position=${position}, salary=${salary}, state=${state}`);
     const employee = new Employee({ name, position, salary, state });
     employee.save()
         .then(() => {
