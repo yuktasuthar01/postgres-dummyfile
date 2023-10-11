@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
-const cors = require('cors');
 const port = process.env.PORT || 3000;
 require('dotenv').config();
 
@@ -20,14 +19,6 @@ const Employee = mongoose.model('Employee', {
     state: String
 });
 
-app.use(cors());
-const corsOptions = {
-    origin: 'https://taskfrontendstorage.z29.web.core.windows.net/', // Replace with your frontend's URL
-    methods: 'GET,POST,OPTIONS',
-    allowedHeaders: 'Content-Type', // Specify the allowed request headers
-  };
-  
-  app.use(cors(corsOptions));
 
 // Middleware to parse POST data
 app.use(bodyParser.urlencoded({ extended: true }));
