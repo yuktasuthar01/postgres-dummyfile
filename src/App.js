@@ -16,7 +16,7 @@ function App() {
 
   const fetchEmployeeData = async () => {
     try {
-      const response = await axios.get('/employees');
+      const response = await axios.get('52.191.54.18/employees');
       setEmployees(response.data);
     } catch (error) {
       console.error('Error fetching employee data:', error);
@@ -31,7 +31,7 @@ function App() {
     e.preventDefault();
 
     try {
-      await axios.post('/add', formData);
+      await axios.post('52.191.54.18/add', formData);
       fetchEmployeeData();
       setFormData({
         name: '',
