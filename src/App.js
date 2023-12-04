@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
 axios.defaults.baseURL='http://52.191.54.18';
 function App() {
   const [employees, setEmployees] = useState([]);
