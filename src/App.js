@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
+axios.defaults.baseURL='http://52.191.54.18';
 function App() {
   const [employees, setEmployees] = useState([]);
   const [formData, setFormData] = useState({
@@ -16,7 +18,7 @@ function App() {
 
   const fetchEmployeeData = async () => {
     try {
-      const response = await axios.get('52.191.54.18/employees');
+      const response = await axios.get('/employees');
       setEmployees(response.data);
     } catch (error) {
       console.error('Error fetching employee data:', error);
@@ -31,7 +33,7 @@ function App() {
     e.preventDefault();
 
     try {
-      await axios.post('52.191.54.18/add', formData);
+      await axios.post('/add', formData);
       fetchEmployeeData();
       setFormData({
         name: '',
