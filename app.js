@@ -17,7 +17,7 @@ const pool = new Pool({
 
 // Create a PostgreSQL table for employees
 const createEmployeeTable = `
-    CREATE TABLE IF NOT EXISTS postgres (
+    CREATE TABLE IF NOT EXISTS employees (
         id SERIAL PRIMARY KEY,
         name VARCHAR(255),
         position VARCHAR(255),
