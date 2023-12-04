@@ -12,7 +12,7 @@ const pool = new Pool({
     password: process.env.PGPASSWORD,
     port: process.env.PGPORT,
     database: process.env.PGDATABASE,
-         ssl: true
+    ssl: true
 });
 
 // Create a PostgreSQL table for employees
@@ -92,6 +92,16 @@ app.post('/add', (req, res) => {
             console.error(err);
             res.send('Error saving employee data.');
         });
+});
+
+app.get('/health', (req, res) => {
+    console.log('Received health check request');
+    
+    // You can customize the message as needed
+    const healthMessage = 'Health check OK';
+
+    // Send a 200 status code with the health message
+    res.status(200).send(healthMessage);
 });
 
 process.on('SIGTERM', () => {
